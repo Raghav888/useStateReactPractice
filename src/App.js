@@ -2,6 +2,7 @@ import "./styles.css";
 import React, { useState } from "react";
 import Home from "./home";
 import DarkMode from "./darkmode";
+import Figma from "./figma";
 
 export default function App() {
   // Password
@@ -146,6 +147,9 @@ export default function App() {
       {comp === "About" && <Home value={comp} />}
       <hr />
       <DarkMode />
+
+      <hr />
+      <Figma />
     </div>
   );
 }
