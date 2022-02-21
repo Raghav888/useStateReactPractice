@@ -4,6 +4,7 @@ import Home from "./home";
 import DarkMode from "./darkmode";
 import Figma from "./figma";
 import Toast from "./toast";
+import Like from "./like";
 
 export default function App() {
   // Password
@@ -205,6 +206,9 @@ export default function App() {
       {active && showtoast === "red" && (
         <Toast changeActive={makeDeactive} toastcolor={showtoast} />
       )}
+
+      <hr />
+      <Like />
     </div>
   );
 }
