@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Home from "./home";
 import DarkMode from "./darkmode";
 import Figma from "./figma";
+import Toast from "./toast";
 
 export default function App() {
   // Password
@@ -89,6 +90,19 @@ export default function App() {
   // Todo
 
   let [comp, setcomp] = useState("Home");
+  // Toast
+
+  let [active, setactive] = useState(false);
+  let [showbutton, buttonstatus] = useState(true);
+  const makeActive = () => {
+    setactive(true);
+    buttonstatus(false);
+  };
+
+  const makeDeactive = () => {
+    setactive(false);
+    buttonstatus(true);
+  };
 
   return (
     <div>
@@ -150,6 +164,9 @@ export default function App() {
 
       <hr />
       <Figma />
+      <hr />
+      {showbutton && <button onClick={makeActive}>Show Toast</button>}
+      {active && <Toast changeActive={makeDeactive} />}
     </div>
   );
 }
