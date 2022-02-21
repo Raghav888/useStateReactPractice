@@ -6,6 +6,7 @@ import Figma from "./figma";
 import Toast from "./toast";
 import Like from "./like";
 import AddtoCart from "./addtocart";
+import Card from "./card";
 
 export default function App() {
   // Password
@@ -169,6 +170,8 @@ export default function App() {
       <Like />
       <hr />
       <AddtoCart />
+      <hr />
+      <Card />
     </div>
   );
 }
