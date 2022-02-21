@@ -94,6 +94,7 @@ export default function App() {
 
   let [active, setactive] = useState(false);
   let [showbutton, buttonstatus] = useState(true);
+  let [showtoast, toastsetter] = useState("");
   const makeActive = () => {
     setactive(true);
     buttonstatus(false);
@@ -165,8 +166,45 @@ export default function App() {
       <hr />
       <Figma />
       <hr />
-      {showbutton && <button onClick={makeActive}>Show Toast</button>}
-      {active && <Toast changeActive={makeDeactive} />}
+      {showbutton && (
+        <button
+          onClick={() => {
+            toastsetter("green");
+            makeActive();
+          }}
+        >
+          Success
+        </button>
+      )}
+      {showbutton && (
+        <button
+          onClick={() => {
+            toastsetter("black");
+            makeActive();
+          }}
+        >
+          Failure
+        </button>
+      )}
+      {showbutton && (
+        <button
+          onClick={() => {
+            toastsetter("red");
+            makeActive();
+          }}
+        >
+          Error
+        </button>
+      )}
+      {active && showtoast === "green" && (
+        <Toast changeActive={makeDeactive} toastcolor={showtoast} />
+      )}
+      {active && showtoast === "black" && (
+        <Toast changeActive={makeDeactive} toastcolor={showtoast} />
+      )}
+      {active && showtoast === "red" && (
+        <Toast changeActive={makeDeactive} toastcolor={showtoast} />
+      )}
     </div>
   );
 }

@@ -8,7 +8,7 @@
 }
 .snackbar {
   display: flex;
-  background-color: black;
+
   padding: 5px;
   align-items: center;
   max-width: max-content;
@@ -18,8 +18,6 @@
   color: white;
 }
 .snackbar__close {
-  background-color: black;
   margin-left: 10px;
   font-size: 15px;
-  border-color: black;
 }
