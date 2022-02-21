@@ -5,6 +5,7 @@ import DarkMode from "./darkmode";
 import Figma from "./figma";
 import Toast from "./toast";
 import Like from "./like";
+import AddtoCart from "./addtocart";
 
 export default function App() {
   // Password
@@ -59,35 +60,6 @@ export default function App() {
   };
   //cart
 
-  let [itemsincart, additem] = useState([{}]);
-  const grape = () => {
-    itemsincart.apple
-      ? additem([
-          { ...itemsincart },
-          {
-            apple: itemsincart.apple + 1,
-            name: "apple"
-          }
-        ])
-      : additem({ ...itemsincart, apple: 1 });
-  };
-  const apple = () => {
-    itemsincart.grapes
-      ? additem([
-          { ...itemsincart },
-          {
-            grapes: itemsincart.grapes + 1,
-            name: "Grapes"
-          }
-        ])
-      : additem({ ...itemsincart, grapes: 1 });
-  };
-  // const pine = () => {
-  //   itemsincart[grape]
-  //     ? additem({ ...itemsincart, grape: itemsincart[grape] + 1 })
-  //     : additem({ ...itemsincart, grape: 1 });
-  // };
-
   // Todo
 
   let [comp, setcomp] = useState("Home");
@@ -139,20 +111,6 @@ export default function App() {
       <input type={typeoftext}></input>
       <button onClick={buttoncheck}>{buttontext}</button>
       <hr />
-      {/* Cart */}
-
-      <li>Apple</li>
-      <button onClick={apple}>Add to cart</button>
-
-      <li>Grapes</li>
-      <button onClick={grape}>Add to cart</button>
-      {/* <li>Pineaaple</li>
-      <button onClick={pine}>Add to cart</button> */}
-      <h2>Items in Cart</h2>
-      <div>
-        {itemsincart.name}
-        {itemsincart.grapes}
-      </div>
 
       <hr />
       <button onClick={() => setcomp("Home")}>Home</button>
@@ -209,6 +167,8 @@ export default function App() {
 
       <hr />
       <Like />
+      <hr />
+      <AddtoCart />
     </div>
   );
 }
