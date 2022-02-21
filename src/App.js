@@ -1,6 +1,7 @@
 import "./styles.css";
 import React, { useState } from "react";
 import Home from "./home";
+import DarkMode from "./darkmode";
 
 export default function App() {
   // Password
@@ -85,19 +86,6 @@ export default function App() {
   // };
 
   // Todo
-  let [texttodo, settext] = useState();
-  let [todolist, addtodolist] = useState([]);
-
-  const addtext = (event) => {
-    settext(event.target.value);
-  };
-  const addtodo = () => {
-    addtodolist([...todolist, texttodo]);
-  };
-  let [linebreak, setline] = useState();
-  const handleClick = (event) => {
-    setline("line-through");
-  };
 
   let [comp, setcomp] = useState("Home");
 
@@ -148,19 +136,7 @@ export default function App() {
         {itemsincart.name}
         {itemsincart.grapes}
       </div>
-      <hr />
-      <h2>Todo</h2>
-      <input onChange={addtext} type="text"></input>
-      <button onClick={addtodo}>Submit</button>
-      {todolist.map((item, index) => (
-        <p
-          style={{ textDecorationLine: linebreak }}
-          key={index}
-          onClick={handleClick}
-        >
-          {item}
-        </p>
-      ))}
+
       <hr />
       <button onClick={() => setcomp("Home")}>Home</button>
       <button onClick={() => setcomp("Profile")}>Profile</button>
@@ -168,6 +144,8 @@ export default function App() {
       {comp === "Home" && <Home value={comp} />}
       {comp === "Profile" && <Home value={comp} />}
       {comp === "About" && <Home value={comp} />}
+      <hr />
+      <DarkMode />
     </div>
   );
 }
