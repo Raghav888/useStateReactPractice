@@ -4,7 +4,7 @@ import React, { useState } from "react";
 export default function PassMatch() {
   let [pass, setpass] = useState({ newpassword: "", confirmpassword: "" });
   let [value, setvalue] = useState("none");
-  let [disable, setDisable] = useState(false);
+  let [disable, setDisable] = useState(true);
 
   const confpass = (event) => {
     setpass({ ...pass, [event.target.name]: event.target.value });

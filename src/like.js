@@ -8,7 +8,7 @@ let items = [
 ];
 const markStrike = (id, statussetter, status) => {
   let data = status.map((item) =>
-    item.id === id ? { ...item, islike: true } : item
+    item.id === id ? { ...item, islike: !item.islike } : item
   );
   statussetter(data);
 };
